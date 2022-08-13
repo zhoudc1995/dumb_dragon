@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+html,
+body,
+#app,
+.wrapper {
+  width: 100%;
+  height: 100%;
+  font-family: Google Sans, SF Pro Display, Arial, sans-serif;
+}
+p {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+p.p2 {
+  color: #000;
+}
+
+body {
+  font-family: "PingFang SC", "Helvetica Neue", Helvetica, "microsoft yahei",
+    arial, STHeiTi, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.primary-btn-captcha {
+  opacity: 0;
+  position: relative;
+  z-index: 0;
+  display: none;
+}
+.content-box {
+  width: 100%;
+  /* padding-bottom: 30px; */
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  background: #f8f8fa;
+}
+.pointer {
+  cursor: pointer;
+}
+.content {
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+.content::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.content-collapse {
+  left: 65px;
+}
+
+.container {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.crumbs {
+  margin: 10px 0;
+}
+
+.el-table th {
+  background-color: #f5f7fa !important;
+}
+
+.pagination {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.plugins-tips {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.mgb20 {
+  margin-bottom: 20px;
+}
+
+.move-enter-active,
+.move-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.move-enter-from,
+.move-leave-to {
+  opacity: 0;
+}
+
+/*BaseForm*/
+
+.form-box {
+  width: 600px;
+}
+
+.form-box .line {
+  text-align: center;
+}
+
+/*Upload*/
+
+.pure-button {
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.g-core-image-corp-container .info-aside {
+  height: 45px;
+}
+
+/*VueEditor*/
+
+.ql-container {
+  min-height: 400px;
+}
+
+.ql-snow .ql-tooltip {
+  transform: translateX(117.5px) translateY(10px) !important;
+}
+
+.editor-btn {
+  margin-top: 20px;
+}
+
+/*markdown*/
+
+.v-note-wrapper .v-note-panel {
+  min-height: 500px;
+}
+
+img {
+  display: block;
+}
+
+input,
+button,
+select {
+  border: none;
+  outline: none;
+  appearance: none;
+}
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Medium.eot");
+  src: local("Google Sans Medium"), local("GoogleSans-Medium"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Medium.woff2")
+      format("woff2"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Medium.woff")
+      format("woff"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Medium.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.static.linkr.bio/ramboo/linkr/TEXT/sf-pro-display/sf-pro-display_regular.ttf);
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Bold.eot");
+  src: local("Google Sans Bold"), local("GoogleSans-Bold"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Bold.woff")
+      format("woff"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Bold.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Google Sans";
+  src: url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Regular.eot");
+  src: local("Google Sans Regular"), local("GoogleSans-Regular"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Regular.woff")
+      format("woff"),
+    url("https://cdn.static.linkr.bio/ramboo/linkr/TEXT/linkr_fonts/GoogleSans/GoogleSans-Regular.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent;
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+input::-webkit-input-placeholder {
+  color: #d7d7d7;
+  font-weight: 400;
+  font-size: 16px;
+}
+.page-footer {
+  position: absolute;
+  bottom: 18px;
+  color: #959596;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+}
+.page-footer a {
+  color: #959596;
+  font-weight: 400;
+  font-size: 12px;
+}
+.el-input__inner:focus {
+  border-color: #7972e2 !important;
+}

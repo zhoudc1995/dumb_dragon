@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es5",
+        "noImplicitAny": false,
+        "allowJs": true,
+        "paths": {
+        "@/*": ["src/*"]
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}

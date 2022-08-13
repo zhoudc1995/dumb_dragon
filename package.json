@@ -1,0 +1,88 @@
+{
+  "name": "short_link",
+  "version": "1.0.1",
+  "description": "a vue management system based on ：vue3 + vue-router + vuex + element Plus + ES6 + webpack + npm",
+  "keywords": [
+    "vue",
+    "vue-admin",
+    "vue-admin-spa",
+    "vue-router",
+    "vuex",
+    "element-ui",
+    "webpack",
+    "npm"
+  ],
+  "author": "zdc <mr_zhoudc@163.com> ",
+  "license": "MIT",
+  "scripts": {
+    "dev": "VUE_APP_ENV=test npm run serve",
+    "dev:prod": "VUE_APP_ENV=test npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --mode production",
+    "build:dev": "VUE_APP_ENV=test vue-cli-service build --mode dev",
+    "build:test": "VUE_APP_ENV=test vue-cli-service build --mode production",
+    "build:production": "VUE_APP_ENV=production vue-cli-service build --mode production",
+    "lint": "vue-cli-service lint --fix"
+  },
+  "dependencies": {
+    "@hcaptcha/vue3-hcaptcha": "^1.0.1",
+    "axios": "^0.21.1",
+    "core-js": "~3.9.1",
+    "cropperjs": "^1.5.12",
+    "echarts": "^5.3.3",
+    "element-plus": "1.0.2-beta.33",
+    "file-saver": "^2.0.5",
+    "flag-icons": "^6.6.3",
+    "js-sha256": "^0.9.0",
+    "markdown-loader": "^6.0.0",
+    "uuid": "^8.3.2",
+    "v-calendar": "^3.0.0-alpha.8",
+    "vue": "~3.0.7",
+    "vue-cropperjs": "^5.0.0",
+    "vue-i18n": "^9.0.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4",
+    "vue-markdown": "^2.2.4",
+    "vue-router": "~4.0.4",
+    "vue-schart": "^2.0.0",
+    "vuex": "~4.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.11",
+    "@vue/cli-plugin-eslint": "~4.5.11",
+    "@vue/cli-plugin-router": "~4.5.11",
+    "@vue/cli-plugin-typescript": "^4.5.11",
+    "@vue/cli-plugin-vuex": "~4.5.11",
+    "@vue/cli-service": "~4.5.11",
+    "@vue/compiler-sfc": "~3.0.7",
+    "babel-eslint": "~10.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "~6.8.0",
+    "eslint-plugin-vue": "~7.7.0",
+    "mockjs": "^1.1.0",
+    "sass": "~1.32.8",
+    "sass-loader": "~8.0.2",
+    "ts-loader": "~8.2.0",
+    "typescript": "^4.7.4",
+    "vue-cli-plugin-element-plus": "0.0.13",
+    "webpack": "4.44.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
