@@ -2,7 +2,7 @@
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-29 15:47:29
  * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-08-13 13:30:10
+ * @LastEditTime: 2022-08-21 10:59:18
  * @FilePath: /code/vue3/src/components/Header.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -36,9 +36,8 @@
   z-index: 1;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   &-content {
-    width: 98%;
+    padding: 0 25px;
     height: 100%;
-    max-width: 1390px;
     display: flex;
     margin: 0 auto;
     align-items: center;
@@ -49,6 +48,10 @@
       display: flex;
       align-items: center;
     }
+    .center {
+      margin-left: 140px;
+    }
+
     .avator {
       width: 56px;
       height: 56px;
@@ -78,6 +81,7 @@
     .text3 {
       width: 138px;
       height: 25px;
+      margin-top: 6px;
       background: url(~@/assets/img/index/text3.png) no-repeat center;
       background-size: cover;
       margin-left: 41px;

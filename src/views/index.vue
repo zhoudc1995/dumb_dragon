@@ -2,7 +2,7 @@
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-22 16:18:16
  * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-08-14 13:00:44
+ * @LastEditTime: 2022-08-21 10:30:00
  * @FilePath: /code/vue3/src/views/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,8 +10,9 @@
   <div class="dumb-wrapper">
     <div class="dumb-banner">
       <img src="@/assets/img/index/bg.jpg" />
-      <img class="banner-gif" src="@/assets/img/index/banner.gif" />
-      <!-- <div class="banner-content">
+      <div class="dumb-banner-content">
+        <img class="banner-gif" src="@/assets/img/index/banner.gif" />
+        <!-- <div class="banner-content">
         <div class="support"></div>
         <div class="mint-container">
           <div class="num">1</div>
@@ -23,19 +24,23 @@
           <div class="desc">MAX <span>5</span> NFTS PER WALLET</div>
         </div>
       </div> -->
-      <div class="banner-logo"></div>
+        <div class="banner-logo"></div>
+      </div>
     </div>
     <div class="dumb-dragonz">
       <div class="dragons"></div>
       <div class="dragon-content">
-        <div class="dragon-title"></div>
-        <div class="dragon-desc">
-          A collection of 10,000 PFPs with useful functions, with rich variety
-          and unique rarity characteristics. <br /><br />
-          Everyone thinks we're DUMB, but every DumbDragon will enjoy their time
-          at DumbLab and create their own Dumb creation.
-          <br /><br />
-          Who wouldn't want to do Dumb but amazing things with DumbLab together!
+        <div class="dragon-content-position">
+          <div class="dragon-title"></div>
+          <div class="dragon-desc">
+            A collection of 10,000 PFPs with useful functions, with rich variety
+            and unique rarity characteristics. <br /><br />
+            Everyone thinks we're DUMB, but every DumbDragon will enjoy their
+            time at DumbLab and create their own Dumb creation.
+            <br /><br />
+            Who wouldn't want to do Dumb but amazing things with DumbLab
+            together!
+          </div>
         </div>
       </div>
     </div>
@@ -146,10 +151,19 @@ export default defineComponent({
   width: 100%;
   .dumb-banner {
     width: 100%;
+    height: 100vh;
     position: relative;
+    overflow: hidden;
+    &-content {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+    }
     .banner-gif {
       position: absolute;
-      top: 187px;
+      top: 50%;
+      transform: translateY(-50%);
       right: 134px;
       // transform: translatey(-50%);
       width: 468px;
@@ -221,7 +235,8 @@ export default defineComponent({
     .banner-logo {
       position: absolute;
       left: 225px;
-      top: 302px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 465px;
       height: 170px;
       background: url(~@/assets/img/index/dumb_1.png) no-repeat center;
@@ -245,7 +260,15 @@ export default defineComponent({
       margin-left: 122px;
     }
     .dragon-content {
-      margin-left: 71px;
+      position: relative;
+      flex: 1;
+      height: 100%;
+      .dragon-content-position {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+      }
       .dragon-title {
         width: 579px;
         height: 97px;
@@ -294,7 +317,8 @@ export default defineComponent({
         height: 400px;
         background: url(~@/assets/img/index/dragon1.png) no-repeat center;
         background-size: contain;
-        margin-left: 37px;
+        // margin-left: 37px;
+        flex: 1;
       }
     }
     .lab-bottom {
