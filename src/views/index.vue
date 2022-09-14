@@ -2,7 +2,7 @@
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-22 16:18:16
  * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-08-21 10:30:00
+ * @LastEditTime: 2022-09-14 18:02:50
  * @FilePath: /code/vue3/src/views/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -12,19 +12,21 @@
       <img src="@/assets/img/index/bg.jpg" />
       <div class="dumb-banner-content">
         <img class="banner-gif" src="@/assets/img/index/banner.gif" />
-        <!-- <div class="banner-content">
-        <div class="support"></div>
-        <div class="mint-container">
-          <div class="num">1</div>
-          <div class="mint"></div>
+        <div class="banner-content">
+          <div class="support"></div>
+          <div class="mint-container">
+            <div class="num">1</div>
+            <div class="mint"></div>
+          </div>
+          <div class="process">
+            <div class="title"><span>XXXX</span> / 10000</div>
+            <div class="desc">
+              <span>2</span> FREE Other <span>0.005E</span>
+            </div>
+            <div class="desc">MAX <span>5</span> NFTS PER WALLET</div>
+          </div>
         </div>
-        <div class="process">
-          <div class="title"><span>XXXX</span> / 10000</div>
-          <div class="desc"><span>2</span> FREE Other <span>0.005E</span></div>
-          <div class="desc">MAX <span>5</span> NFTS PER WALLET</div>
-        </div>
-      </div> -->
-        <div class="banner-logo"></div>
+        <!-- <div class="banner-logo"></div> -->
       </div>
     </div>
     <div class="dumb-dragonz">
@@ -100,6 +102,7 @@
 <script>
 import { defineComponent, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import Web3 from "web3";
 export default defineComponent({
   setup() {
     const route = useRoute();
