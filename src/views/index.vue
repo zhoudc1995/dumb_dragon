@@ -2,7 +2,7 @@
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-22 16:18:16
  * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-09-14 18:02:50
+ * @LastEditTime: 2022-09-15 10:05:24
  * @FilePath: /code/vue3/src/views/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -135,6 +135,17 @@ export default defineComponent({
       scrollY(curY, top);
     };
     onMounted(() => {
+      var web3 = new Web3(
+        new Web3.providers.HttpProvider(
+          "https://etherscan.io/address/0x281851c4dd77bac877bac193fa987bf8d0b3cc95#readContract"
+        )
+      );
+      console.log(web3, "web3");
+      // var contract = new web3.eth.Contract(
+      //   JSON.parse(data),
+      //   "0x281851c4dd77BAC877bac193fA987BF8D0b3cc95"
+      // );
+      // console.log(contract, "asdads");
       if (route.query.lab) {
         setTimeout(() => {
           toScroll();
