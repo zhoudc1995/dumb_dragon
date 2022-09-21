@@ -2,7 +2,7 @@
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-22 16:18:16
  * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-09-16 17:36:01
+ * @LastEditTime: 2022-09-21 14:36:41
  * @FilePath: /code/vue3/src/views/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,10 +16,12 @@
           <div class="support"></div>
           <div class="mint-container">
             <div class="num">1</div>
-            <div class="mint"></div>
+            <div class="mint" @click="mint"></div>
           </div>
           <div class="process">
-            <div class="title"><span>XXXX</span> / 10000</div>
+            <div class="title">
+              <span>{{ num }}</span> / 10000
+            </div>
             <div class="desc">
               <span>2</span> FREE Other <span>0.005E</span>
             </div>
@@ -100,12 +102,27 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import Web3 from "web3";
+// Unpkg imports
+const Web3Modal = window.Web3Modal.default;
+const WalletConnectProvider = window.WalletConnectProvider.default;
+// const EvmChains = window.EvmChains;
+const Fortmatic = window.Fortmatic;
+
+// Web3modal instance
+let web3Modal;
+
+// Chosen wallet provider given by the dialog window
+let provider; // 钱包 、 infrua
+
+// Address of the selected account
+// let selectedAccount;
+
 export default defineComponent({
   setup() {
     const route = useRoute();
+    let num = ref(0);
     const scrollY = (curY, y) => {
       if (curY !== y) {
         // 计算需要移动的距离
@@ -134,20 +151,44 @@ export default defineComponent({
       let top = document.getElementById("lab").offsetTop;
       scrollY(curY, top);
     };
-    onMounted(async () => {
-      var web3 = new Web3(
-        new Web3.providers.HttpProvider(
-          "https://etherscan.io/address/0x281851c4dd77bac877bac193fa987bf8d0b3cc95#readContract"
-        )
-      );
+    const init = () => {
+      console.log("Initializing example");
+      console.log("WalletConnectProvider is", WalletConnectProvider);
+      console.log("Fortmatic is", Fortmatic);
+
+      // Tell Web3modal what providers we have available.
+      // Built-in web browser provider (only one can exist as a time)
+      // like MetaMask, Brave or Opera is added automatically by Web3modal
+      const providerOptions = {
+        walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+            // Mikko's test key - don't copy as your mileage may vary
+            infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
+          },
+        },
+
+        fortmatic: {
+          package: Fortmatic,
+          options: {
+            // Mikko's TESTNET api key
+            key: "pk_test_391E26A3B43A3350",
+          },
+        },
+      };
+
+      web3Modal = new Web3Modal({
+        cacheProvider: false, // optional
+        providerOptions, // required
+      });
+    };
+    const mint = async () => {
+      provider = await web3Modal.connect();
+      const web3 = new window.Web3(provider);
       const abi = [
         {
           inputs: [
-            {
-              internalType: "string",
-              name: "_initUnRevealedURI",
-              type: "string",
-            },
+            { internalType: "string", name: "_initBaseURI", type: "string" },
           ],
           stateMutability: "nonpayable",
           type: "constructor",
@@ -296,13 +337,6 @@ export default defineComponent({
           type: "function",
         },
         {
-          inputs: [],
-          name: "baseURI",
-          outputs: [{ internalType: "string", name: "", type: "string" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [
             { internalType: "uint256", name: "tokenId", type: "uint256" },
           ],
@@ -376,13 +410,6 @@ export default defineComponent({
           type: "function",
         },
         {
-          inputs: [],
-          name: "reveal",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
           inputs: [
             { internalType: "address", name: "from", type: "address" },
             { internalType: "address", name: "to", type: "address" },
@@ -409,7 +436,6 @@ export default defineComponent({
           inputs: [],
           name: "saleConfig",
           outputs: [
-            { internalType: "bool", name: "revealed", type: "bool" },
             { internalType: "uint32", name: "freeMintCount", type: "uint32" },
             {
               internalType: "uint64",
@@ -472,19 +498,6 @@ export default defineComponent({
         },
         {
           inputs: [
-            {
-              internalType: "string",
-              name: "_newUnRevealedURI",
-              type: "string",
-            },
-          ],
-          name: "setUnRevealedURI",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
             { internalType: "bytes4", name: "interfaceId", type: "bytes4" },
           ],
           name: "supportsInterface",
@@ -537,28 +550,23 @@ export default defineComponent({
         },
         {
           inputs: [],
-          name: "unRevealedURI",
-          outputs: [{ internalType: "string", name: "", type: "string" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
           name: "withdraw",
           outputs: [],
           stateMutability: "payable",
           type: "function",
         },
       ];
-      var contract = new web3.eth.Contract(
-        abi,
-        "0x281851c4dd77BAC877bac193fA987BF8D0b3cc95"
-      );
-      setTimeout(async () => {
-        console.log("123132");
-        let mint_count = await contract.methods.totalSupply().call();
-        console.log(mint_count, "adsads");
-      }, 5000);
+      const nftContractAddress = "0x281851c4dd77BAC877bac193fA987BF8D0b3cc95";
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      const nftContract = new web3.eth.Contract(abi, nftContractAddress);
+      let nums = await nftContract.methods.totalSupply().call();
+      console.log(accounts, nums);
+      num.value = nums;
+    };
+    onMounted(async () => {
+      init();
       if (route.query.lab) {
         setTimeout(() => {
           toScroll();
@@ -568,6 +576,8 @@ export default defineComponent({
     return {
       scrollY,
       toScroll,
+      mint,
+      num,
     };
   },
 });
