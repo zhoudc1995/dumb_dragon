@@ -15,7 +15,9 @@
         <div class="banner-content">
           <div class="support"></div>
           <div class="mint-container">
-            <div class="num">1</div>
+            <div class="num">
+              <input type="number" v-model="currentNum" />
+            </div>
             <div class="mint" @click="mint"></div>
           </div>
           <div class="process">
@@ -123,6 +125,7 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     let num = ref(0);
+    let currentNum = ref(1);
     const scrollY = (curY, y) => {
       if (curY !== y) {
         // 计算需要移动的距离
@@ -578,6 +581,7 @@ export default defineComponent({
       toScroll,
       mint,
       num,
+      currentNum,
     };
   },
 });
@@ -636,6 +640,18 @@ export default defineComponent({
           font-size: 54px;
           text-align: center;
           line-height: 90px;
+          input {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 20px;
+            background: rgba(216, 150, 132, 0.5);
+            text-align: center;
+            color: #fff;
+            font-size: 54px;
+            border: none;
+            outline: none;
+          }
         }
         .mint {
           width: 297px;
