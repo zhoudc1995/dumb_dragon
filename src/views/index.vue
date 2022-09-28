@@ -1,8 +1,8 @@
 <!--
  * @Author: 周东晨 mr_zhoudc@163.com
  * @Date: 2022-07-22 16:18:16
- * @LastEditors: 周东晨 mr_zhoudc@163.com
- * @LastEditTime: 2022-09-21 14:36:41
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-09-28 13:46:54
  * @FilePath: /code/vue3/src/views/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -21,9 +21,7 @@
             <div class="mint" @click="mint"></div>
           </div>
           <div class="process">
-            <div class="title">
-              <span>{{ num }}</span> / 10000
-            </div>
+            <div class="title"><span>XXXX</span> / 55555</div>
             <div class="desc">
               <span>2</span> FREE Other <span>0.005E</span>
             </div>
@@ -39,7 +37,7 @@
         <div class="dragon-content-position">
           <div class="dragon-title"></div>
           <div class="dragon-desc">
-            A collection of 10,000 PFPs with useful functions, with rich variety
+            A collection of 5555 PFPs with useful functions, with rich variety
             and unique rarity characteristics. <br /><br />
             Everyone thinks we're DUMB, but every DumbDragon will enjoy their
             time at DumbLab and create their own Dumb creation.
